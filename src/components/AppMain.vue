@@ -18,7 +18,7 @@ export default {
             console.log(resp);
             this.characters = resp.data;
         })
-    }
+    },
 }
 </script>
 

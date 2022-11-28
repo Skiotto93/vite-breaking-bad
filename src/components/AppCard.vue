@@ -34,5 +34,8 @@ export default {
             color: #4d5d6c;
             margin-bottom: 5px;
         }
+        .character {
+            text-transform: uppercase;
+        }
     }
 </style>
