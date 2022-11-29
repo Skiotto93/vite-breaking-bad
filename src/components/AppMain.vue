@@ -15,29 +15,37 @@ export default {
         }
     },
     created() {
-        axios.get("https://www.breakingbadapi.com/api/characters")
+        axios.get("https://www.breakingbadapi.com/api/characters", {
+            params: {
+            category: this.store.statusValue,
+            },
+        })
         .then((resp) => {
             console.log(resp);
             this.characters = resp.data;
-        });
+        },
         
+        );
     },
-    computed() {
 
-    }
 }
 </script>
 
 <template>
     <form>
         <select class="choice" name="category" >
-            <option selected>Select Category</option>
+            <option value="" selected>Select Category</option>
             <option value="Breaking Bad">Breaking Bad</option>
             <option value="Better Call Saul">Better Call Saul</option>
         </select>
     </form>
     <section class="container">
-        <div class="count">Found {{ characters.length }} characters</div>
+        <div class="count" v-if="(characters.length > 0)">
+            Found {{ characters.length }} characters
+        </div>
+        <div class="count" v-else>
+            No characters found
+        </div>
         <div class="d-flex">
             <AppCard v-for="character in characters" :info="character"/>
         </div>
