@@ -17,18 +17,17 @@ export default {
         .then((resp) => {
             console.log(resp);
             this.characters = resp.data;
-        })
+        });
     },
 }
 </script>
 
 <template>
     <form action="">
-        <select class="choice">
+        <select class="choice" name="category">
             <option selected>Select Category</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+            <option value="Breaking Bad">Breaking Bad</option>
+            <option value="Better Call Saul">Better Call Saul</option>
         </select>
     </form>
     <section class="container">
